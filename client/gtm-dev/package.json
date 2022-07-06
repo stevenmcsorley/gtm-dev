@@ -9,7 +9,12 @@
     "lint": "next lint",
     "test": "jest --watch",
     "test:ci": "jest --ci",
-    "prepare": "cd ../.. && husky install client/gtm-dev/.husky"
+    "prepare": "cd ../../ && husky install ./client/gtm-dev/.husky"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "cd client/gtm-dev lint-staged"
+    }
   },
   "dependencies": {
     "next": "12.2.0",
@@ -26,15 +31,10 @@
     "eslint-config-next": "12.2.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest-dom": "^4.0.2",
-    "husky": "^8.0.0",
+    "husky": "^8.0.1",
     "jest": "^28.1.2",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "ts-node": "^10.8.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "cd client/gtm-dev lint-staged"
-    }
   }
 }

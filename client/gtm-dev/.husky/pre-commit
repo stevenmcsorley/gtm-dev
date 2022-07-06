@@ -1,2 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
+
+cd ./gtm-dev && npx lint-staged
