@@ -9,24 +9,39 @@
     "lint": "next lint",
     "test": "jest --watch",
     "test:ci": "jest --ci",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run ",
     "prepare": "cd ../../ && husky install ./client/gtm-dev/.husky"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cd client/gtm-dev lint-staged"
+      "pre-commit": "cd client/gtm-dev lint-staged --no-error-on-unmatched-pattern"
     }
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css}": [
+      "prettier --write",
+      "eslint --fix src/",
+      "tslint --fix --project .",
+      "git add"
+    ]
+  },
   "dependencies": {
+    "jest-environment-jsdom": "^28.1.2",
     "next": "12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@cypress-audit/lighthouse": "^1.3.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
+    "@types/jest": "^28.1.4",
     "@types/testing-library__jest-dom": "^5.14.5",
     "@types/testing-library__react": "^10.2.0",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "cypress": "^10.3.0",
+    "cypress-audit": "^1.1.0",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
     "eslint-config-prettier": "^8.5.0",

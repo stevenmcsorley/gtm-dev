@@ -10,6 +10,6 @@ describe('Home', () => {
       name: /Home Page/i,
     })
 
-    expect(heading).toBeVisible()
+    expect(heading).toBeInTheDocument()
   })
 })
